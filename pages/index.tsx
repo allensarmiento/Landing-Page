@@ -1,5 +1,7 @@
 import classnames from 'classnames';
 import Head from 'next/head';
+import MenuButton from '../core/menu-button';
+import Navigation from '../core/navigation';
 
 const Home = () => {
   return (
@@ -22,17 +24,17 @@ const Home = () => {
           rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700"
         />
-        <style jsx global>{`
-          .gradient {
-            background: linear-gradient(90deg, #d53369 0%, #daae51 100%);
-          }
-
-          body {
-            font-family: 'Source Sans Pro', sans-serif;
-          }
-        `}</style>
       </Head>
-      <nav id="header" className={classnames(
+      <style jsx global>{`
+        .gradient {
+          background: linear-gradient(90deg, #d53369 0%, #daae51 100%);
+        }
+
+        body {
+          font-family: 'Source Sans Pro', sans-serif;
+        }
+      `}</style>
+      <header id="header" className={classnames(
         'fixed',
         'w-full',
         'z-30',
@@ -85,8 +87,71 @@ const Home = () => {
               LANDING
             </a>
           </div>
+          <div className={classnames(
+            'block',
+            'lg:hidden',
+            'pr-4'
+          )}>
+            <MenuButton />
+          </div>
+          <nav
+            id="nav-content"
+            className={classnames(
+              'flex-grow',
+              'lg:flex',
+              'lg:items-center',
+              'lg:w-auto',
+              'hidden',
+              'w-full',
+              'mt-2',
+              'lg:mt-0',
+              'p-4',
+              'lg:p-0',
+              'bg-white',
+              'lg:bg-transparent',
+              'text-black',
+              'z-20',
+            )}
+          >
+            <Navigation />
+            <button
+              id="navAction"
+              className={classnames(
+                'mx-auto',
+                'lg:mx-0',
+                'mt-4',
+                'lg:mt-0',
+                'py-4',
+                'px-8',
+                'hover:underline',
+                'bg-white',
+                'text-gray-800',
+                'font-bold',
+                'rounded-full',
+                'shadow',
+                'opacity-75',
+                'focus:outline-none',
+                'focus:shadow-outline',
+                'transform',
+                'transition',
+                'hover:scale-105',
+                'duration-300',
+                'ease-in-out',
+              )}
+            >
+              Action
+            </button>
+          </nav>
         </div>
-      </nav>
+        <hr className={classnames(
+          'border-b',
+          'border-gray-100',
+          'opacity-25',
+          'my-0',
+          'py-0',
+        )} />
+      </header>
+      <div></div>
     </div>
   );
 };
