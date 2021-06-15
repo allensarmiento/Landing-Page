@@ -1,11 +1,15 @@
 import classnames from 'classnames';
 import Head from 'next/head';
 import Image from 'next/image';
-import { ConnectedWorld, Wave, TravelBooking } from '../core/icons';
+import GradientButton from '../core/gradient-button';
+import { ConnectedWorld, Wave, WaveReversed, TravelBooking } from '../core/icons';
+import KitchenSinkCard from '../core/kitchen-sink-card';
 import MenuButton from '../core/menu-button';
 import Navigation from '../core/navigation';
+import RaisedCard from '../core/raised-card';
 import ThemedH3 from '../core/themed-h3';
 import ThemedP from '../core/themed-p';
+import TitleHeading from '../core/title-heading';
 import WhiteButton from '../core/white-button';
 
 const Home = () => {
@@ -207,29 +211,7 @@ const Home = () => {
             'm-8',
             'mx-auto',
           )}>
-            <h1 className={classnames(
-              'w-full',
-              'my-2',
-              'text-gray-800',
-              'text-5xl',
-              'font-bold',
-              'text-center',
-              'leading-tight',
-            )}>
-              Title
-            </h1>
-            <div className="w-full mb-4">
-              <div className={classnames(
-                'w-64',
-                'h-1',
-                'mx-auto',
-                'my-0',
-                'py-0',
-                'gradient',
-                'opacity-25',
-                'rounded-t',
-              )} />
-            </div>
+            <TitleHeading>Title</TitleHeading>
             <div className="flex flex-wrap">
               <div className="w-5/6 sm:w-1/2 p-6">
                 <ThemedH3>Lorem ipsum dolor sit amet</ThemedH3>
@@ -279,7 +261,66 @@ const Home = () => {
             </div>
           </div>
         </section>
-        <section className="bg-white border-b py-8">430 line</section>
+        <section className="bg-white border-b py-8">
+          <div className={classnames(
+            'container',
+            'flex',
+            'flex-wrap',
+            'mx-auto',
+            'pt-4',
+            'pb-12',
+          )}>
+            <TitleHeading>Title</TitleHeading>
+            <RaisedCard />
+            <RaisedCard />
+            <RaisedCard />
+          </div>
+        </section>
+        <section className="py-8 bg-gray-100">
+          <div className={classnames(
+            'container',
+            'mx-auto',
+            'px-2',
+            'pt-4',
+            'pb-12',
+            'text-gray-800',
+          )}>
+            <TitleHeading>Pricing</TitleHeading>
+            <div className={classnames(
+              'flex',
+              'flex-col',
+              'sm:flex-row',
+              'justify-center',
+              'pt-12',
+              'my-12',
+              'sm:my-4',
+            )}>
+              <KitchenSinkCard
+                title="Free"
+                items={['Thing', 'Thing', 'Thing']}
+              >
+                £0&nbsp;
+                <span className="text-base">for one user</span>
+              </KitchenSinkCard>
+              <KitchenSinkCard
+                title="Basic"
+                items={['Thing', 'Thing', 'Thing', 'Thing']}
+              >
+                £x.99
+                <span className="text-base">/ per user</span>
+              </KitchenSinkCard>
+              <KitchenSinkCard
+                title="Pro"
+                items={['Thing', 'Thing', 'Thing']}
+              >
+                £x.99
+                <span className="text-base">/ per user</span>
+              </KitchenSinkCard>
+            </div>
+          </div>
+        </section>
+        <WaveReversed color="#f8fafc" />
+        <section className={classnames()}>609 line</section>
       </div>
     </div>
   );
